@@ -58,11 +58,12 @@ class LogIn extends React.Component {
         })
       );
   };
-
+   
   render() {
     let { email, password, errors } = this.state;
     return (
       <section>
+        
         <form className="form-control signin" onSubmit={this.handleSubmit}>
           <h2>Sign In</h2>
           <p>Need an account?</p>
@@ -87,6 +88,7 @@ class LogIn extends React.Component {
               className="login-btn"
               type="submit"
               disabled={errors.email || errors.password}
+              
             >
               Sign In
             </button>

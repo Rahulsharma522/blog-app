@@ -15,7 +15,7 @@ class SignUp extends React.Component {
     },
   };
 
-  handleChange = (event) => {
+ handleChange = (event) => {
     let { name, value } = event.target;
     let errors = { ...this.state.error };
     validation(errors, name, value);
@@ -27,7 +27,7 @@ class SignUp extends React.Component {
     fetch(SignUpURL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type':'application/json',
       },
       body: JSON.stringify({ user: { username, email, password } }),
     })
@@ -39,6 +39,7 @@ class SignUp extends React.Component {
           // throw new Error('Fatch is not successful');
         }
         return res.json();
+        
       })
       .then(({ user }) => {
         this.props.updateUser(user);
@@ -47,7 +48,7 @@ class SignUp extends React.Component {
       })
       .catch((errors) => this.setState({ errors }));
   };
-
+ 
   render() {
     let { username, email, password, errors } = this.state;
     return (
@@ -70,9 +71,10 @@ class SignUp extends React.Component {
               name="email"
               placeholder="Email"
               value={email}
-            />
-            <span className="color-red">{errors.email}</span>
-            <input
+          />
+            <SignUp Component='red'></SignUp>
+          <span className='color-green'>{errors.email}</span>
+            <input 
               onChange={this.handleChange}
               type="password"
               name="password"
@@ -84,10 +86,8 @@ class SignUp extends React.Component {
               <button
                 className="login-btn"
                 type="submit"
-                disabled={errors.username || errors.email || errors.password}
-              >
+              />
                 Sign Up
-              </button>
             </div>
           </form>
         </section>

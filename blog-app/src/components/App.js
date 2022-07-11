@@ -1,7 +1,7 @@
 import React from "react";
-
 import Signin from "./signin";
 import Signup from "./signup";
+
 import Newpost from "./newpost";
 import Singlearticle from './singlearticle'
 import Tag from "./tag";
@@ -11,7 +11,6 @@ import Profile from "./profile";
 import Nav from "./nav";
 
 import { Switch, Route } from 'react-router-dom'
-
 
 class App extends React.Component {
     constructor(props) {
@@ -36,6 +35,7 @@ class App extends React.Component {
               if (res.ok) {
                 return res.json();
               }
+              
               return res.json().then(({ errors }) => {
                 return Promise.reject(errors);
               });
@@ -44,6 +44,7 @@ class App extends React.Component {
             .catch((error) => {
               console.log(error);
             });
+
         } else {
           this.setState({ isVerifying: false });
         }
@@ -56,14 +57,12 @@ class App extends React.Component {
         });
         localStorage.setItem('app_user', user.token);
       };
-
+      
     render() {
         return (
             <>
              
-
-
-<Nav isLoggedIn={this.state.isLoggedIn} user={this.state.user} />
+ <Nav isLoggedIn={this.state.isLoggedIn} user={this.state.user} />
         {this.state.isLoggedIn ? (
           <AuthenticatedApp
             user={this.state.user}
@@ -81,12 +80,7 @@ class App extends React.Component {
     }
 
 }
-
-
-
-
-
-
+<Nav isVerifying={test.apply.isVerifying} user={test.apply.user} />
 
 function AuthenticatedApp(props) {
     return (
@@ -112,10 +106,13 @@ function AuthenticatedApp(props) {
         <Route path="*">
           {/* <NoMatch /> */}
         </Route>
+       
       </Switch>
     );
   }
-  
+  <Route>
+    <module exact path="/edit-post"></module>
+  </Route>
   function UnauthenticatedApp(props) {
     return (
       <Switch>
@@ -128,7 +125,6 @@ function AuthenticatedApp(props) {
         <Route path="/signup">
           <Signup updateUser={props.updateUser} />
         </Route>
-  
         <Route path="/article/:slug">
           <Singlearticle user={props.user} />
         </Route>
@@ -137,5 +133,8 @@ function AuthenticatedApp(props) {
         </Route>
       </Switch>
     );
+   
   }
-export default App;
+  
+  export default App;
+  
