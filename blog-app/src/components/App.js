@@ -21,7 +21,7 @@ class App extends React.Component {
             isVerifying: true,
         })
     }
-
+     
     componentDidMount() {
         let storageKey = localStorage['app_user'];
         if (storageKey) {
@@ -45,7 +45,7 @@ class App extends React.Component {
               console.log(error);
             });
 
-        } else {
+        } else {  
           this.setState({ isVerifying: false });
         }
       }
@@ -135,6 +135,6 @@ function AuthenticatedApp(props) {
     );
    
   }
-  
+
   export default App;
   

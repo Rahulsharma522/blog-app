@@ -30,7 +30,7 @@ class AddComment extends React.Component {
     })
       .then((res) => {
         if (!res.ok) {
-          return Promise.reject('unble to comment');
+          return Promise.reject('unable to comment');
         }
         return res.json();
       })
@@ -55,7 +55,7 @@ class AddComment extends React.Component {
     })
       .then((res) => {
         if (!res.ok) {
-          return Promise.reject('unble comments');
+          return Promise.reject('unable comments');
         }
         return res.json();
       })
@@ -67,7 +67,7 @@ class AddComment extends React.Component {
       })
       .catch((error) => {
         this.setState({
-          error: 'unble to fetch comment',
+          error: 'unable to fetch comment',
         });
       });
   };

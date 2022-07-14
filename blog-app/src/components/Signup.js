@@ -65,7 +65,7 @@ class SignUp extends React.Component {
               value={username}
             />
             <span className="color-red">{errors.username}</span>
-            <input
+            <input 
               onChange={this.handleChange}
               type="email"
               name="email"

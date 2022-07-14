@@ -12,7 +12,7 @@ class LogIn extends React.Component {
       password: '',
     },
   };
-
+  
   handleChange = (event) => {
     let { name, value } = event.target;
     let errors = { ...this.state.errors };
@@ -33,6 +33,7 @@ class LogIn extends React.Component {
       },
       body: JSON.stringify({ user: { email, password } }),
     })
+
       .then((res) => {
         if (!res.ok) {
           return res.json().then(({ errors }) => {
@@ -58,7 +59,7 @@ class LogIn extends React.Component {
         })
       );
   };
-   
+  
   render() {
     let { email, password, errors } = this.state;
     return (
@@ -88,8 +89,8 @@ class LogIn extends React.Component {
               className="login-btn"
               type="submit"
               disabled={errors.email || errors.password}
-              
-            >
+            >  
+            
               Sign In
             </button>
           </div>

@@ -21,8 +21,9 @@ function FeedNav(props) {
               className={props.activeTab && 'active'}
               to="/"
             >
-              #{props.activeTab}
+                 #{props.activeTab}
               #{props.Link}
+              
             </Link>
           </li>
         )}
